@@ -1,0 +1,25 @@
+{
+  "name": "sipedbd",
+  "version": "1.0.0",
+  "description": "SIPEDBD (Sistem Informasi Prediksi dan Analisis DBD) - Sistem berbasis web yang digunakan untuk menganalisis data historis kasus DBD, mengidentifikasi pola penyebaran berdasarkan waktu, wilayah, usia, dan jenis kelamin, serta memprediksi kemungkinan peningkatan kasus DBD pada periode mendatang.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "node server.js",
+    "analyze": "python scripts/analysis_engine.py",
+    "generate:data": "python scripts/generate_data.py",
+    "generate:pptx": "python scripts/generate_pptx.py"
+  },
+  "keywords": [
+    "sipedbd",
+    "big-data",
+    "dengue",
+    "dbd",
+    "time-series-forecasting",
+    "k-means-clustering",
+    "epidemiology"
+  ],
+  "author": "",
+  "license": "MIT"
+}

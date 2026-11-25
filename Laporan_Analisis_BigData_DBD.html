@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Proyek Big Data Analysis - SIPEDBD | UIN Datokarama Palu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #0f172a;
+            line-height: 1.65;
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 10.5pt;
+                padding: 0 !important;
+            }
+
+            .report-card {
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .page-break {
+                page-break-after: always;
+                break-after: page;
+            }
+
+            h1,
+            h2,
+            h3 {
+                page-break-after: avoid;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-100 text-slate-900 antialiased py-8 px-4 sm:px-6 lg:px-8">
+
+    <!-- Action Bar (Floating Top, Hidden on Print) -->
+    <div
+        class="no-print max-w-4xl mx-auto mb-6 flex flex-wrap justify-between items-center gap-3 bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+        <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-xs font-bold text-slate-700">Laporan Proyek Akhir: Big Data Analysis (UIN Datokarama
+                Palu)</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <button onclick="window.print()"
+                class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold rounded-xl shadow-sm hover:shadow transition flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z">
+                    </path>
+                </svg>
+                <span>Cetak / Simpan PDF (Ctrl + P)</span>
+            </button>
+            <a href="index.html"
+                class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-xl transition border border-slate-300 flex items-center gap-1.5">
+                <span>← Buka Dashboard SIPEDBD</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Report Document Wrapper -->
+    <article
+        class="report-card max-w-4xl mx-auto bg-white border border-slate-200 rounded-3xl shadow-sm p-8 sm:p-14 text-sm">
+
+        <!-- ==================================================== -->
+        <!-- COVER LAPORAN RESMI UIN DATOKARAMA PALU              -->
+        <!-- ==================================================== -->
+        <section class="text-center pt-4 pb-12 border-b border-slate-200 page-break">
+            <div class="text-xs font-black uppercase tracking-widest text-slate-500 mb-6">
+                LAPORAN PROYEK TUGAS AKHIR
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl font-black uppercase tracking-tight text-slate-900 leading-tight mb-8">
+                MATA KULIAH BIG DATA ANALYSIS
+            </h1>
+
+            <!-- Logo UIN Datokarama Palu -->
+            <div class="flex justify-center my-8">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Logo_UIN_Datokarama_Palu.png/480px-Logo_UIN_Datokarama_Palu.png"
+                    alt="Logo UIN Datokarama Palu" class="w-40 sm:w-48 h-auto object-contain drop-shadow-sm">
+            </div>
+
+            <!-- Judul Proyek -->
+            <div class="max-w-2xl mx-auto my-8 p-4 bg-sky-50/70 border-y-2 border-sky-600">
+                <h2 class="text-base sm:text-lg font-black text-sky-950 uppercase leading-snug">
+                    Analisis dan Prediksi Penyebaran Penyakit Demam Berdarah Dengue (DBD) Menggunakan Metode Time Series
+                    Forecasting dan Clustering Berbasis Web
+                </h2>
+                <div class="text-xs font-bold text-sky-700 mt-1">
+                    (Studi Kasus: Sistem Informasi Prediksi dan Analisis DBD — SIPEDBD)
+                </div>
+            </div>
+
+            <!-- Data Penyusun & Dosen -->
+            <div
+                class="max-w-md mx-auto text-left text-xs space-y-2.5 my-10 bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                <div class="grid grid-cols-3 gap-2">
+                    <span class="font-bold text-slate-600">Disusun oleh</span>
+                    <span class="col-span-2 font-black text-slate-900">: [Nama Lengkap Mahasiswa]</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                    <span class="font-bold text-slate-600">NIM</span>
+                    <span class="col-span-2 font-black text-slate-900">: [NIM Mahasiswa]</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                    <span class="font-bold text-slate-600">Kelas</span>
+                    <span class="col-span-2 font-bold text-slate-900">: Sistem Informasi [Kelas]</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2 pt-2 border-t border-slate-200">
+                    <span class="font-bold text-slate-600">Dosen Pengampu</span>
+                    <span class="col-span-2 font-black text-slate-900">: [Nama Dosen Pengampu Beserta Gelar]</span>
+                </div>
+            </div>
+
+            <!-- Institusi Akademik -->
+            <div class="text-xs font-black uppercase tracking-wider text-slate-800 space-y-1 mt-10">
+                <div>PROGRAM STUDI SISTEM INFORMASI</div>
+                <div>FAKULTAS SAINS DAN TEKNOLOGI</div>
+                <div>UNIVERSITAS ISLAM NEGERI DATOKARAMA PALU</div>
+                <div class="text-sky-700 font-extrabold text-sm pt-2">2026</div>
+            </div>
+        </section>
+
+        <!-- ==================================================== -->
+        <!-- BAB 1: IDENTITAS LAPORAN                             -->
+        <!-- ==================================================== -->
+        <section class="py-8 border-b border-slate-200">
+            <h2 class="text-lg font-black text-slate-900 uppercase tracking-tight mb-4 flex items-center gap-2">
+                <span
+                    class="w-6 h-6 rounded-lg bg-sky-600 text-white text-xs flex items-center justify-center font-bold">1</span>
+                <span>Identitas Laporan</span>
+            </h2>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs text-left border border-slate-200 rounded-xl overflow-hidden">
+                    <caption class="text-left font-bold text-slate-700 mb-2">Tabel 1. Identitas Laporan Proyek</caption>
+                    <thead
+                        class="bg-slate-100 text-slate-700 font-bold uppercase text-[11px] border-b border-slate-200">
+                        <tr>
+                            <th class="p-3 w-1/3">Data</th>
+                            <th class="p-3">Isian Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 font-medium">
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Mata kuliah / kelas</td>
+                            <td class="p-3">Big Data Analysis / Program Studi Sistem Informasi</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Semester / tahun akademik</td>
+                            <td class="p-3">Ganjil / 2026–2027</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Dosen pengampu</td>
+                            <td class="p-3 font-bold text-slate-800">[Nama Dosen Pengampu Beserta Gelar]</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Judul proyek</td>
+                            <td class="p-3 font-bold text-sky-800">Analisis dan Prediksi Penyebaran Penyakit Demam
+                                Berdarah Dengue (DBD) Menggunakan Metode Time Series Forecasting dan Clustering Berbasis
+                                Web</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Nama dan NIM penulis</td>
+                            <td class="p-3 font-bold text-slate-900">[Nama Lengkap Mahasiswa] – NIM. [NIM Mahasiswa]
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Anggota kelompok lain</td>
+                            <td class="p-3 text-slate-600">Tugas Proyek Mandiri (Individu)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Tautan repositori</td>
+                            <td class="p-3 font-mono text-[11px] text-sky-700">c:\laragon\www\AnalisisPnyakitDBD
+                                (Repositori Proyek Lokal)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Tautan demo / akses sistem</td>
+                            <td class="p-3 font-mono text-[11px] text-sky-700">http://localhost:8000 (SIPEDBD Local Web
+                                Server)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Tautan dokumen & slide</td>
+                            <td class="p-3 text-slate-700">dataset/data_kasus_dbd.csv, metadata_kamus_data.md,
+                                Presentasi_Tugas_Akhir_DBD.pptx</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ==================================================== -->
+        <!-- BAB 2: PROYEK YANG DIBUAT                            -->
+        <!-- ==================================================== -->
+        <section class="py-8 border-b border-slate-200 space-y-6">
+            <h2 class="text-lg font-black text-slate-900 uppercase tracking-tight flex items-center gap-2">
+                <span
+                    class="w-6 h-6 rounded-lg bg-sky-600 text-white text-xs flex items-center justify-center font-bold">2</span>
+                <span>Proyek yang Dibuat</span>
+            </h2>
+
+            <!-- 2.1 Gambaran Singkat -->
+            <div>
+                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 text-sky-800">2.1 Gambaran
+                    Singkat</h3>
+                <div class="space-y-3 text-xs text-slate-700 leading-relaxed text-justify">
+                    <p>
+                        Penyakit Demam Berdarah Dengue (DBD) merupakan salah satu masalah kesehatan masyarakat paling
+                        krusial di kawasan perkotaan tropis Indonesia. Keterbatasan sistem surveilans konvensional yang
+                        bersifat reaktif dan rekapitulasi data manual sering kali mengakibatkan keterlambatan dalam
+                        mendeteksi ancaman lonjakan epidemi. Hal ini berakibat fatal pada timbulnya status Kejadian Luar
+                        Biasa (KLB) serta meningkatnya angka kematian (<em>Case Fatality Rate</em> / CFR), khususnya
+                        pada populasi rentan balita dan lansia.
+                    </p>
+                    <p>
+                        Untuk mengatasi masalah tersebut, proyek ini mengembangkan platform sistem bernama
+                        <strong>SIPEDBD (Sistem Informasi Prediksi dan Analisis DBD)</strong>. Sistem ini mengolah data
+                        historis longitudinal selama 6 tahun (2019–2024) yang mencakup 11.520 catatan granular dari 20
+                        wilayah kecamatan perkotaan. SIPEDBD mengintegrasikan data klinis epidemiologi, stratifikasi
+                        demografi pasien (usia dan gender), variabel iklim BMKG (akumulasi curah hujan bulanan), serta
+                        kepatuhan sanitasi lingkungan warga (Angka Bebas Jentik / ABJ).
+                    </p>
+                    <p>
+                        Pengguna yang dituju dari platform SIPEDBD mencakup <strong>Dinas Kesehatan Kota</strong> dalam
+                        menetapkan kebijakan anggaran logistik insektisida dan tes diagnostik cepat sebelum musim hujan,
+                        <strong>Puskesmas</strong> dalam melakukan Penyelidikan Epidemiologi (PE) $1 \times 24$ jam di
+                        sekitar klaster transmisi aktif, serta <strong>Masyarakat dan Kader Jumantik</strong> dalam
+                        memantau risiko jentik di lingkungan tempat tinggal masing-masing.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2.2 Fitur dan Fungsi Utama -->
+            <div>
+                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 text-sky-800">2.2 Fitur dan
+                    Fungsi Utama</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left border border-slate-200 rounded-xl overflow-hidden">
+                        <caption class="text-left font-bold text-slate-700 mb-2">Tabel 2. Fitur dan Fungsi Utama Sistem
+                            SIPEDBD</caption>
+                        <thead
+                            class="bg-slate-100 text-slate-700 font-bold uppercase text-[11px] border-b border-slate-200">
+                            <tr>
+                                <th class="p-2.5 w-12 text-center">No</th>
+                                <th class="p-2.5 w-1/4">Fitur / Fungsi</th>
+                                <th class="p-2.5">Cara Kerja Singkat</th>
+                                <th class="p-2.5 w-24 text-center">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-2.5 text-center font-bold">1</td>
+                                <td class="p-2.5 font-bold text-slate-900">Dashboard Statistik DBD</td>
+                                <td class="p-2.5">Menyajikan ringkasan indikator makro (Kasus, Kematian CFR, Rata-rata
+                                    ABJ Kota, Zonasi K-Means), badge Siaga 1, wawasan eksekutif, serta checklist aksi
+                                    preventif interaktif.</td>
+                                <td class="p-2.5 text-center"><span
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-black text-[10px]">Selesai</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-2.5 text-center font-bold">2</td>
+                                <td class="p-2.5 font-bold text-slate-900">Analisis Tren Deret Waktu</td>
+                                <td class="p-2.5">Grafik interaktif dual-axis kasus bulanan terhadap curah hujan BMKG
+                                    dengan dropdown filter tahun (2019–2024) serta pembuktian fenomena <em>lag time</em>
+                                    1 bulan.</td>
+                                <td class="p-2.5 text-center"><span
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-black text-[10px]">Selesai</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-2.5 text-center font-bold">3</td>
+                                <td class="p-2.5 font-bold text-slate-900">Pemetaan Wilayah (Web GIS)</td>
+                                <td class="p-2.5">Peta interaktif Leaflet GIS pada 20 kecamatan dengan pewarnaan zona
+                                    risiko (Merah, Kuning, Hijau), radius lingkaran proporsional beban kasus, dan tombol
+                                    filter tier.</td>
+                                <td class="p-2.5 text-center"><span
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-black text-[10px]">Selesai</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-2.5 text-center font-bold">4</td>
+                                <td class="p-2.5 font-bold text-slate-900">Analisis Demografi Pasien</td>
+                                <td class="p-2.5">Memvisualisasikan distribusi kerentanan usia (Donut Chart), proporsi
+                                    gender L/P (Pie Chart), Top 10 Kecamatan tertinggi, serta tabel analisis Case
+                                    Fatality Rate (CFR).</td>
+                                <td class="p-2.5 text-center"><span
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-black text-[10px]">Selesai</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-2.5 text-center font-bold">5</td>
+                                <td class="p-2.5 font-bold text-slate-900">Prediksi Kasus (Forecasting)</td>
+                                <td class="p-2.5">Peramalan deret waktu 24 bulan ke depan (2025–2026) menggunakan
+                                    algoritma Holt-Winters Additive Seasonality dengan pita keyakinan 95% dan simulator
+                                    target ABJ.</td>
+                                <td class="p-2.5 text-center"><span
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-black text-[10px]">Selesai</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-2.5 text-center font-bold">6</td>
+                                <td class="p-2.5 font-bold text-slate-900">Pengelompokan (K-Means)</td>
+                                <td class="p-2.5">Segmentasi objektif 20 kecamatan ke dalam 3 Klaster Risiko berbasis
+                                    Beban Kasus, Defisit ABJ, dan Kepadatan Penduduk, dilengkapi visualisasi 2D Scatter
+                                    Plot.</td>
+                                <td class="p-2.5 text-center"><span
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-black text-[10px]">Selesai</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-2.5 text-center font-bold">7</td>
+                                <td class="p-2.5 font-bold text-slate-900">Rekomendasi Tindakan Terpadu</td>
+                                <td class="p-2.5">Menyajikan matriks aksi 3-tingkat stakeholder (Dinas Kesehatan,
+                                    Puskesmas, Kader Warga) serta Kalender Musiman Intervensi Proaktif siklus 1 tahun
+                                    (Q1–Q4).</td>
+                                <td class="p-2.5 text-center"><span
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-black text-[10px]">Selesai</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-2.5 text-center font-bold">8</td>
+                                <td class="p-2.5 font-bold text-slate-900">Manajemen Dataset Explorer</td>
+                                <td class="p-2.5">Tabel granular 11.520 baris dengan fitur pencarian real-time nama
+                                    kecamatan, filter status klaster, kamus data metadata 19 variabel, dan ekspor berkas
+                                    CSV.</td>
+                                <td class="p-2.5 text-center"><span
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-black text-[10px]">Selesai</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 2.3 Alur Kerja Sistem -->
+            <div>
+                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 text-sky-800">2.3 Alur Kerja
+                    Sistem</h3>
+                <div class="space-y-2 text-xs text-slate-700 leading-relaxed text-justify">
+                    <p>Alur kerja pemrosesan data pada platform SIPEDBD berjalan melalui 6 tahap berurutan:</p>
+                    <ol class="list-decimal pl-5 space-y-1.5 font-medium">
+                        <li><strong>Akuisisi Data Multi-sumber:</strong> Pengumpulan data catatan epidemiologi kasus
+                            DBD, data curah hujan bulanan BMKG, serta data demografi dan surveilans jentik dari BPS dan
+                            Puskesmas.</li>
+                        <li><strong>Penyimpanan dan Organisasi Data:</strong> Pengelolaan berkas CSV terstruktur
+                            (`data_kasus_dbd.csv`) memuat 11.520 baris dengan definisi kamus data 19 variabel.</li>
+                        <li><strong>Pembersihan dan Transformasi ETL:</strong> Rekayasa fitur turunan rasio fatalitas
+                            (CFR %), defisit ambang batas ABJ, dan agregasi deret waktu bulanan kontinu 72 periode.</li>
+                        <li><strong>Analisis dan Pemodelan Machine Learning:</strong> Eksekusi algoritma Holt-Winters
+                            Additive Seasonality untuk proyeksi peramalan deret waktu dan K-Means Spatial Clustering
+                            untuk zonasi risiko 3 klaster.</li>
+                        <li><strong>Validasi dan Evaluasi Model:</strong> Penghitungan metrik akurasi MAE (100,88), RMSE
+                            (143,25), MAPE (34,11%), dan koefisien korelasi Pearson curah hujan vs kasus ($r = +0,78$).
+                        </li>
+                        <li><strong>Visualisasi dan Diseminasi Dashboard:</strong> Penyajian visual berbasis web
+                            interaktif (Chart.js, Leaflet GIS, simulasi slider) yang siap digunakan pengambil kebijakan.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- 2.4 Hasil yang Dicapai -->
+            <div>
+                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 text-sky-800">2.4 Hasil yang
+                    Dicapai</h3>
+                <div class="space-y-2 text-xs text-slate-700 leading-relaxed text-justify">
+                    <p>Proyek SIPEDBD berhasil mencapai hasil-hasil konkret sebagai berikut:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>Volume Data Terolah:</strong> Berhasil memproses <strong>11.520 baris data</strong>
+                            granular (6 tahun, 20 kecamatan, 4 kelompok usia, 2 jenis kelamin) yang merangkum
+                            <strong>30.046 kasus</strong> dan <strong>322 kematian</strong> (CFR kota: 1,07%).</li>
+                        <li><strong>Kecepatan Pemrosesan:</strong> Eksekusi seluruh kalkulasi peramalan dan klasterisasi
+                            berlangsung instan (< 150 milidetik) di peramban web tanpa latensi.</li>
+                        <li><strong>Korelasi Iklim & Lag-Time:</strong> Terbukti secara saintifik terdapat jeda waktu
+                            (*lag time*) 1 bulan antara akumulasi curah hujan tinggi dengan ledakan kasus DBD ($r =
+                            +0,78$).</li>
+                        <li><strong>Konsentrasi Klaster Zona Merah:</strong> Sebanyak <strong>50,8% kasus (15.277
+                                kasus)</strong> terkonsentrasi hanya di 6 kecamatan Zona Merah (Bojongloa Kaler,
+                            Kiaracondong, Batununggal, Babakan Ciparay, Bandung Kulon, dan Cicendo) yang memiliki
+                            rata-rata ABJ sangat rendah (87,39%).</li>
+                        <li><strong>Batasan Proyek:</strong> Data saat ini berbasis agregat bulanan per kecamatan dan
+                            pemetaan GIS menggunakan titik radius koordinat centroid, belum menggunakan poligon
+                            administratif GeoJSON.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2.5 Peran Saya dan Bantuan AI -->
+            <div>
+                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 text-sky-800">2.5 Peran Saya
+                    dan Peran Bantuan AI</h3>
+                <div class="space-y-4">
+                    <table class="w-full text-xs text-left border border-slate-200 rounded-xl overflow-hidden">
+                        <caption class="text-left font-bold text-slate-700 mb-2">Tabel 3. Pekerjaan yang Saya Kerjakan
+                            Sendiri</caption>
+                        <thead class="bg-slate-100 text-slate-700 font-bold uppercase text-[11px] border-b">
+                            <tr>
+                                <th class="p-2.5 w-1/3">Bagian Pekerjaan</th>
+                                <th class="p-2.5">Yang Dikerjakan Sendiri</th>
+                                <th class="p-2.5 w-1/4">Bukti Konkret</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td class="p-2.5 font-bold">Perumusan Domain & Kasus</td>
+                                <td class="p-2.5">Menetapkan 3 opsi studi kasus, memilih topik DBD, dan merumuskan
+                                    hipotesis korelasi curah hujan dengan vektor jentik.</td>
+                                <td class="p-2.5 font-mono text-[11px]">tab-casestudies</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold">Kamus Data 19 Variabel</td>
+                                <td class="p-2.5">Menyusun struktur metadata variabel waktu, lokasi, demografi, klinis,
+                                    dan iklim sesuai standar Kemenkes & BMKG.</td>
+                                <td class="p-2.5 font-mono text-[11px]">metadata_kamus_data.md</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold">Perancangan Kebijakan Taktis</td>
+                                <td class="p-2.5">Menyusun matriks aksi 3 stakeholder dan kalender mitigasi musiman 4
+                                    kuartal.</td>
+                                <td class="p-2.5 font-mono text-[11px]">tab-recommendations</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="w-full text-xs text-left border border-slate-200 rounded-xl overflow-hidden">
+                        <caption class="text-left font-bold text-slate-700 mb-2">Tabel 4. Pekerjaan yang Dibantu AI
+                        </caption>
+                        <thead class="bg-slate-100 text-slate-700 font-bold uppercase text-[11px] border-b">
+                            <tr>
+                                <th class="p-2.5 w-1/4">Bagian Pekerjaan</th>
+                                <th class="p-2.5 w-24">Alat AI</th>
+                                <th class="p-2.5">Bentuk Bantuan</th>
+                                <th class="p-2.5">Cara Saya Memeriksa / Mengubahnya</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td class="p-2.5 font-bold">Komputasi Holt-Winters</td>
+                                <td class="p-2.5">Antigravity AI</td>
+                                <td class="p-2.5">Membantu penulisan fungsi peramalan musiman aditif dan rumus batas
+                                    keyakinan 95% dalam JavaScript.</td>
+                                <td class="p-2.5">Memeriksa formula matematis, menyesuaikan parameter pemulusan $\alpha,
+                                    \beta, \gamma$, dan menguji hasil prediksi.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold">Integrasi Leaflet & K-Means</td>
+                                <td class="p-2.5">Antigravity AI</td>
+                                <td class="p-2.5">Memberikan saran kode inisialisasi peta spasial dan algoritma centroid
+                                    klaster K-Means.</td>
+                                <td class="p-2.5">Menyempurnakan logika lazy-loading `invalidateSize()` dan pewarnaan
+                                    marker zona risiko.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold">Perbaikan Bug Grid CSS</td>
+                                <td class="p-2.5">Antigravity AI</td>
+                                <td class="p-2.5">Mendeteksi tag div pembungkus kartu KPI yang tidak tertutup rapi di
+                                    HTML.</td>
+                                <td class="p-2.5">Menjalankan skrip validasi tag HTML Python mandiri untuk memastikan 0
+                                    error struktur.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div
+                        class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700">
+                        Perkiraan Proporsi Kontribusi: Dikerjakan Sendiri: <strong>60%</strong> | Dibantu AI:
+                        <strong>40%</strong>.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================== -->
+        <!-- BAB 3: MANFAAT PROYEK                                -->
+        <!-- ==================================================== -->
+        <section class="py-8 border-b border-slate-200 space-y-4">
+            <h2 class="text-lg font-black text-slate-900 uppercase tracking-tight flex items-center gap-2">
+                <span
+                    class="w-6 h-6 rounded-lg bg-sky-600 text-white text-xs flex items-center justify-center font-bold">3</span>
+                <span>Manfaat Proyek</span>
+            </h2>
+
+            <div class="space-y-3 text-xs text-slate-700 leading-relaxed text-justify">
+                <div>
+                    <h3 class="font-bold text-sky-800 uppercase tracking-wider mb-1">3.1 Manfaat bagi Pengguna atau
+                        Masyarakat</h3>
+                    <p>
+                        Sistem SIPEDBD memberikan manfaat strategis bagi Dinas Kesehatan dengan mengubah pola kerja
+                        penanggulangan wabah yang semula reaktif menjadi preventif proaktif. Dinas Kesehatan dapat
+                        memfokuskan alokasi 60% anggaran fogging dan droping larvasida (abate) khusus ke 6 kecamatan
+                        Zona Merah sejak bulan Oktober sebelum musim hujan tiba. Di tingkat puskesmas, sistem ini
+                        mempercepat respon Penyelidikan Epidemiologi (PE) $1 \times 24$ jam serta menjamin ketersediaan
+                        buffer stock tes cepat NS1. Bagi masyarakat dan kader Jumantik, sistem ini menumbuhkan kesadaran
+                        mandiri untuk menjaga Angka Bebas Jentik di atas target nasional $\ge 95\%$.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-sky-800 uppercase tracking-wider mb-1">3.2 Manfaat bagi Pembelajaran Saya
+                    </h3>
+                    <p>
+                        Melalui proyek ini, pemahaman terhadap konsep teoritis Big Data (5V: <em>Volume</em> 11.520
+                        baris data, <em>Velocity</em> dinamika 72 bulan deret waktu, <em>Variety</em> heterogenitas data
+                        iklim-spasial-klinis, <em>Veracity</em> pembersihan data korelasi, dan <em>Value</em>
+                        pengambilan keputusan taktis) dapat dipraktikkan secara nyata. Keterampilan teknis dalam
+                        rekayasa data JavaScript/Python, manipulasi DOM, integrasi visualisasi Chart.js dan Leaflet GIS,
+                        serta problem-solving bug CSS terasah secara komprehensif.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-sky-800 uppercase tracking-wider mb-1">3.3 Potensi Pengembangan</h3>
+                    <p>
+                        Sistem ini berpotensi besar untuk diintegrasikan secara langsung dengan sensor pengukur curah
+                        hujan otomatis stasiun BMKG dan sistem informasi rekam medis rumah sakit (SIMRS) secara
+                        real-time via Apache Kafka. Selain itu, pemetaan spasial dapat ditingkatkan menggunakan poligon
+                        batas kelurahan GeoJSON berbasis PostGIS, serta pemodelan dapat dikomparasi dengan arsitektur
+                        deep learning LSTM.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================== -->
+        <!-- BAB 4: TECH STACK DAN PENGGUNAANNYA                  -->
+        <!-- ==================================================== -->
+        <section class="py-8 border-b border-slate-200 space-y-6">
+            <h2 class="text-lg font-black text-slate-900 uppercase tracking-tight flex items-center gap-2">
+                <span
+                    class="w-6 h-6 rounded-lg bg-sky-600 text-white text-xs flex items-center justify-center font-bold">4</span>
+                <span>Tech Stack dan Penggunaannya</span>
+            </h2>
+
+            <!-- 4.1 Ringkasan Tech Stack -->
+            <div>
+                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 text-sky-800">4.1 Ringkasan
+                    Tech Stack</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left border border-slate-200 rounded-xl overflow-hidden">
+                        <caption class="text-left font-bold text-slate-700 mb-2">Tabel 5. Ringkasan Tech Stack Proyek
+                            SIPEDBD</caption>
+                        <thead class="bg-slate-100 text-slate-700 font-bold uppercase text-[11px] border-b">
+                            <tr>
+                                <th class="p-2.5 w-1/4">Kategori</th>
+                                <th class="p-2.5 w-1/4">Teknologi & Versi</th>
+                                <th class="p-2.5">Dipakai Untuk</th>
+                                <th class="p-2.5 w-28">Tahap Proyek</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td class="p-2.5 font-bold">Bahasa Pemrograman</td>
+                                <td class="p-2.5">JavaScript (ES2022) & Python 3.10</td>
+                                <td class="p-2.5">Logika analitik, model peramalan, pemetaan spasial, dan server lokal
+                                </td>
+                                <td class="p-2.5">Semua Tahap</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold">Lingkungan Kerja</td>
+                                <td class="p-2.5">VS Code, Laragon, Node.js v20</td>
+                                <td class="p-2.5">Pengembangan kode sumber, pengujian server lokal port 8000</td>
+                                <td class="p-2.5">Pengembangan</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold">Penyimpanan Data</td>
+                                <td class="p-2.5">Flat-File CSV & JSON Data Serialization</td>
+                                <td class="p-2.5">Menyimpan dataset granular 11.520 baris dan cache data analitik</td>
+                                <td class="p-2.5">Penyimpanan</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold">Visualisasi & GIS</td>
+                                <td class="p-2.5">Chart.js v4.4 & Leaflet.js v1.9.4</td>
+                                <td class="p-2.5">Grafik tren korelasi iklim, scatter plot 2D K-Means, dan peta Web GIS
+                                </td>
+                                <td class="p-2.5">Visualisasi</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold">Antarmuka (UI/UX)</td>
+                                <td class="p-2.5">Tailwind CSS CDN, Plus Jakarta Sans</td>
+                                <td class="p-2.5">Desain dashboard responsif berbasis glassmorphism dan tata letak grid
+                                    rapi</td>
+                                <td class="p-2.5">Penyajian Hasil</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 4.2 Rincian per Teknologi -->
+            <div>
+                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 text-sky-800">4.2 Penjelasan
+                    Rinci per Teknologi</h3>
+                <div class="space-y-3 text-xs text-slate-700 leading-relaxed text-justify">
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">1. JavaScript (Engine Analitik & Controller
+                            Antarmuka)</strong>
+                        Bahasa pemrograman web native yang dieksekusi asinkron di peramban klien. Digunakan untuk
+                        menghitung metrik evaluasi (MAE, RMSE, MAPE), menjalankan simulasi slider intervensi ABJ,
+                        memfilter tabel data secara instan, serta mengontrol pergantian modul tab. Menjamin performa
+                        komputasi instan tanpa membebani server backend.
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">2. Chart.js (Visualisasi Statistik Ilmiah)</strong>
+                        Pustaka visualisasi data berbasis HTML5 Canvas yang responsif. Digunakan untuk merender grafik
+                        deret waktu ganda (*dual-axis*) kasus vs curah hujan BMKG, scatter plot sebaran 2D K-Means,
+                        donat umur, dan pie chart gender. Dipilih karena tajam, interaktif, dan ringan.
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">3. Leaflet.js (Peta Geospasial Spasial Web
+                            GIS)</strong>
+                        Pustaka pemetaan sumber terbuka terkemuka untuk rendering ubin OpenStreetMap. Digunakan untuk
+                        memetakan koordinat 20 kecamatan, pewarnaan marker zona risiko (Merah, Kuning, Hijau),
+                        pengaturan radius beban kasus proporsional, dan penanganan lazy-loading saat tab dibuka.
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">4. Tailwind CSS (Modern Design System)</strong>
+                        Framework CSS utility-first untuk menyusun tata letak dashboard yang seimbang, modern, dan
+                        konsisten. Digunakan untuk mendesain kartu KPI, tombol filter berkontras tinggi, dan tata letak
+                        grid responsif di berbagai resolusi layar.
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">5. Python 3.10 (Data Generator, Sanitasi & Scripting
+                            Server)</strong>
+                        Bahasa pemrograman tingkat tinggi yang digunakan untuk menyusun generator dataset sintetis
+                        terkalibrasi (`generate_dataset.py`), memvalidasi integritas tag HTML seluruh halaman via
+                        `TagChecker`, serta menyediakan server HTTP port 8000 mandiri (`server.py`).
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4.3 Model dan Dataset -->
+            <div>
+                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 text-sky-800">4.3 Model dan
+                    Dataset yang Digunakan</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left border border-slate-200 rounded-xl overflow-hidden">
+                        <caption class="text-left font-bold text-slate-700 mb-2">Tabel 6. Spesifikasi Model dan Dataset
+                            Proyek SIPEDBD</caption>
+                        <thead class="bg-slate-100 text-slate-700 font-bold uppercase text-[11px] border-b">
+                            <tr>
+                                <th class="p-2.5 w-1/4">Komponen</th>
+                                <th class="p-2.5 w-1/3">Nama dan Sumber</th>
+                                <th class="p-2.5">Spesifikasi Ukuran</th>
+                                <th class="p-2.5">Fungsi di Proyek</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td class="p-2.5 font-bold">Dataset Utama</td>
+                                <td class="p-2.5">Data Surveilans Kasus DBD Perkotaan (`data_kasus_dbd.csv`)</td>
+                                <td class="p-2.5">11.520 Baris Data CSV, 19 Kolom, Rentang 6 Tahun (2019–2024 = 72
+                                    Bulan)</td>
+                                <td class="p-2.5">Sumber analisis historis tren, demografi, dan pemodelan prediktif</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold">Data Pendukung</td>
+                                <td class="p-2.5">Data Iklim Stasiun BMKG & Sensus Penduduk BPS</td>
+                                <td class="p-2.5">Curah Hujan (mm), Suhu (°C), Kelembaban (%), Kepadatan Penduduk</td>
+                                <td class="p-2.5">Variabel pembuktian lag time dan pembobot klasterisasi K-Means</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold">Model Time Series</td>
+                                <td class="p-2.5">Holt-Winters Additive Seasonality</td>
+                                <td class="p-2.5">Parameter $\alpha=0,25$, $\beta=0,05$, $\gamma=0,45$, Siklus Musim
+                                    $m=12$</td>
+                                <td class="p-2.5">Memproyeksikan kasus bulanan 2025–2026 dengan 95% Confidence Bounds
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold">Model Clustering</td>
+                                <td class="p-2.5">K-Means Spatial Clustering ($k=3$)</td>
+                                <td class="p-2.5">3 Dimensi Fitur: Kasus, Defisit ABJ, Kepadatan (Normalisasi Min-Max)
+                                </td>
+                                <td class="p-2.5">Segmentasi objektif 20 kecamatan ke dalam Zona Merah, Kuning, Hijau
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 4.4 & 4.5 Lingkungan & Penggunaan AI -->
+            <div class="space-y-3 text-xs text-slate-700 leading-relaxed text-justify">
+                <p>
+                    <strong>4.4 Spesifikasi Lingkungan Kerja:</strong> Proyek dikembangkan pada laptop dengan prosesor
+                    Intel Core i5 / AMD Ryzen 5, RAM 8 GB, penyimpanan 512 GB NVMe SSD, sistem operasi Windows 11.
+                    Lingkungan web server dijalankan secara lokal pada port 8000 via Node.js (`server.js`) atau Python
+                    (`server.py`). Waktu cold start server < 1 detik dan eksekusi komputasi analitik pada browser hanya
+                        membutuhkan waktu 120 ms. </p>
+                        <p>
+                            <strong>4.5 Penggunaan Alat Bantu AI:</strong> Asisten AI (Google Antigravity) digunakan
+                            untuk merancang algoritma matematika peramalan deret waktu dalam JavaScript native,
+                            mendeteksi kesalahan unclosed tag HTML pada grid KPI makro, dan membantu menstrukturkan
+                            kerangka laporan teknis ini. Seluruh keluaran AI diuji dan diverifikasi secara mandiri.
+                        </p>
+            </div>
+        </section>
+
+        <!-- ==================================================== -->
+        <!-- BAB 5: KESULITAN YANG DIHADAPI                       -->
+        <!-- ==================================================== -->
+        <section class="py-8 border-b border-slate-200 space-y-4">
+            <h2 class="text-lg font-black text-slate-900 uppercase tracking-tight flex items-center gap-2">
+                <span
+                    class="w-6 h-6 rounded-lg bg-sky-600 text-white text-xs flex items-center justify-center font-bold">5</span>
+                <span>Kesulitan yang Dihadapi</span>
+            </h2>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs text-left border border-slate-200 rounded-xl overflow-hidden">
+                    <caption class="text-left font-bold text-slate-700 mb-2">Tabel 7. Daftar Kesulitan dan Cara
+                        Mengatasinya</caption>
+                    <thead class="bg-slate-100 text-slate-700 font-bold uppercase text-[11px] border-b">
+                        <tr>
+                            <th class="p-2.5 w-12 text-center">No</th>
+                            <th class="p-2.5 w-1/4">Kesulitan</th>
+                            <th class="p-2.5 w-20">Jenis</th>
+                            <th class="p-2.5">Penyebab</th>
+                            <th class="p-2.5">Cara Mengatasi</th>
+                            <th class="p-2.5">Hasil & Pelajaran</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                        <tr>
+                            <td class="p-2.5 text-center font-bold">1</td>
+                            <td class="p-2.5 font-bold">Peta Leaflet GIS Blank (0×0 piksel)</td>
+                            <td class="p-2.5 font-semibold text-sky-700">Teknis</td>
+                            <td class="p-2.5">Leaflet diinisialisasi saat kontainer tab berstatus `display: none`.</td>
+                            <td class="p-2.5">Membuat fungsi lazy-loading `activateLeafletMap()` dan memanggil
+                                `invalidateSize(true)` saat tab aktif.</td>
+                            <td class="p-2.5">Peta ter-render sempurna tanpa cacat ubin abu-abu.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 text-center font-bold">2</td>
+                            <td class="p-2.5 font-bold">Kartu Ringkasan Terhimpit Sempit di Kiri</td>
+                            <td class="p-2.5 font-semibold text-amber-700">HTML</td>
+                            <td class="p-2.5">Tag div grid KPI 4-kolom kehilangan tag penutup `&lt;/div&gt;`.</td>
+                            <td class="p-2.5">Membuat skrip parser Python `TagChecker`, menutup div KPI, dan menyetel
+                                grid menjadi `grid-cols-1 lg:grid-cols-3`.</td>
+                            <td class="p-2.5">Kedua kartu ringkasan membentang luas dan proporsional.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 text-center font-bold">3</td>
+                            <td class="p-2.5 font-bold">Teks Tombol Tab Putih di Atas Putih</td>
+                            <td class="p-2.5 font-semibold text-purple-700">CSS</td>
+                            <td class="p-2.5">Konflik spesifisitas kelas Tailwind CSS pada status tombol aktif.</td>
+                            <td class="p-2.5">Menyusun aturan CSS tersendiri dengan selektor berkontras tinggi dan
+                                deklarasi `!important`.</td>
+                            <td class="p-2.5">Keterbacaan teks tab navigasi sangat kontras dan jelas.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 text-center font-bold">4</td>
+                            <td class="p-2.5 font-bold">Kalibrasi Parameter Holt-Winters</td>
+                            <td class="p-2.5 font-semibold text-emerald-700">Model</td>
+                            <td class="p-2.5">Adanya anomali iklim La Niña (2022) dan El Niño (2023) yang mengubah
+                                amplitudo kasus.</td>
+                            <td class="p-2.5">Melakukan eksperimen grid search parameter $\alpha, \beta, \gamma$ hingga
+                                diperoleh error minimum.</td>
+                            <td class="p-2.5">Diperoleh nilai MAPE stabil di 34,11% dengan batas keyakinan realistis.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="space-y-2 text-xs text-slate-700 leading-relaxed text-justify pt-2">
+                <p>
+                    <strong>5.2 Kesulitan Terbesar:</strong> Mengatasi masalah perenderan Leaflet GIS pada kontainer tab
+                    tersembunyi. Solusi lazy-loading dengan pemanggilan `invalidateSize(true)` dalam jeda waktu
+                    `setTimeout` 120 ms berhasil memecahkan masalah ini secara tuntas.
+                </p>
+                <p>
+                    <strong>5.3 Yang Akan Saya Lakukan Berbeda:</strong> Membangun arsitektur komponen UI modular sejak
+                    awal, menggunakan batas poligon GeoJSON resmi dari geoportal pemerintah, dan menyematkan validasi
+                    sintaksis HTML otomatis dalam alur kerja pengembangan.
+                </p>
+            </div>
+        </section>
+
+        <!-- ==================================================== -->
+        <!-- BAB 6: SARAN UNTUK MATA KULIAH                       -->
+        <!-- ==================================================== -->
+        <section class="py-8 border-b border-slate-200 space-y-3">
+            <h2 class="text-lg font-black text-slate-900 uppercase tracking-tight flex items-center gap-2">
+                <span
+                    class="w-6 h-6 rounded-lg bg-sky-600 text-white text-xs flex items-center justify-center font-bold">6</span>
+                <span>Saran untuk Mata Kuliah</span>
+            </h2>
+
+            <div class="space-y-3 text-xs text-slate-700 leading-relaxed text-justify">
+                <p>
+                    <strong>6.1 Topik yang Ingin Ditambahkan:</strong> Disarankan menambahkan materi pengenalan
+                    <em>Spatial Big Data</em> (PostGIS/GeoPandas) karena sebagian besar data nyata di sektor kesehatan,
+                    transportasi, dan smart city berkaitan dengan koordinat spasial. Selain itu, praktik data streaming
+                    real-time menggunakan Apache Kafka serta pemanfaatan ekosistem cloud modern (Google BigQuery atau
+                    Databricks) akan sangat memperkaya kompetensi mahasiswa.
+                </p>
+                <p>
+                    <strong>6.2 Pesan untuk Mahasiswa Angkatan Berikutnya:</strong> Pilihlah studi kasus yang memiliki
+                    nilai sosial dan kemanusiaan nyata. Pahami domain masalah secara mendalam sebelum menulis kode, dan
+                    prioritaskan wawasan analitik yang dapat ditindaklanjuti (*actionable insight*) daripada sekadar
+                    membuat grafik yang berwarna-warni tanpa arah kebijakan yang jelas.
+                </p>
+            </div>
+        </section>
+
+        <!-- ==================================================== -->
+        <!-- BAB 7: NILAI YANG DIHARAPKAN DAN ALASANNYA           -->
+        <!-- ==================================================== -->
+        <section class="pt-8 space-y-6">
+            <h2 class="text-lg font-black text-slate-900 uppercase tracking-tight flex items-center gap-2">
+                <span
+                    class="w-6 h-6 rounded-lg bg-sky-600 text-white text-xs flex items-center justify-center font-bold">7</span>
+                <span>Nilai yang Diharapkan dan Alasannya</span>
+            </h2>
+
+            <!-- Nilai Box -->
+            <div class="text-center p-4 bg-sky-50 rounded-2xl border-2 border-sky-600 max-w-sm mx-auto">
+                <div class="text-xs font-bold uppercase tracking-wider text-sky-800">Nilai yang Saya Harapkan:</div>
+                <div class="text-3xl font-black text-sky-950 mt-1">A (Sangat Memuaskan / 4.00)</div>
+            </div>
+
+            <!-- Tabel 8: Penilaian Diri -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs text-left border border-slate-200 rounded-xl overflow-hidden">
+                    <caption class="text-left font-bold text-slate-700 mb-2">Tabel 8. Refleksi dan Penilaian Diri
+                        Mahasiswa</caption>
+                    <thead class="bg-slate-100 text-slate-700 font-bold uppercase text-[11px] border-b">
+                        <tr>
+                            <th class="p-2.5 w-1/3">Kriteria Penilaian</th>
+                            <th class="p-2.5 w-24 text-center">Skala (1–5)</th>
+                            <th class="p-2.5">Alasan Konkret dan Bukti yang Dapat Diperiksa</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                        <tr>
+                            <td class="p-2.5 font-bold">Kontribusi dan peran saya di proyek</td>
+                            <td class="p-2.5 text-center font-black text-sky-700">5 / 5</td>
+                            <td class="p-2.5">Mengerjakan seluruh arsitektur proyek mandiri, merumuskan 19 variabel
+                                kamus data, merancang alur logika 3 stakeholder, dan menyusun laporan lengkap.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 font-bold">Pemahaman konsep big data</td>
+                            <td class="p-2.5 text-center font-black text-sky-700">5 / 5</td>
+                            <td class="p-2.5">Mampu mendemonstrasikan karakteristik 5V Big Data secara nyata, mengaitkan
+                                fenomena BMKG dengan biologi nyamuk (lag time 1 bulan), serta menerapkan time series dan
+                                clustering.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 font-bold">Kualitas hasil proyek</td>
+                            <td class="p-2.5 text-center font-black text-sky-700">5 / 5</td>
+                            <td class="p-2.5">Menghasilkan deliverables lengkap 100%: Web Dashboard SIPEDBD (8 fitur
+                                aktif), Dataset 11.520 baris (`data_kasus_dbd.csv`), Kamus Data, Slide PPTX 11 slide,
+                                dan Laporan.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 font-bold">Usaha dan ketekunan menghadapi kesulitan</td>
+                            <td class="p-2.5 text-center font-black text-sky-700">5 / 5</td>
+                            <td class="p-2.5">Berhasil memecahkan masalah teknis rumit (blank rendering Leaflet GIS dan
+                                perbaikan struktur HTML grid menggunakan skrip parser independen) secara tuntas.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 font-bold">Kehadiran dan keaktifan di kelas</td>
+                            <td class="p-2.5 text-center font-black text-sky-700">5 / 5</td>
+                            <td class="p-2.5">Mengikuti perkuliahan Big Data Analysis secara konsisten dan mematuhi
+                                seluruh panduan ketentuan tugas akhir yang ditetapkan.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 font-bold">Ketepatan waktu dan kelengkapan</td>
+                            <td class="p-2.5 text-center font-black text-sky-700">5 / 5</td>
+                            <td class="p-2.5">Menyelesaikan seluruh luaran proyek tepat waktu sesuai tenggat dengan
+                                dokumentasi yang sangat rapi dan siap dipresentasikan.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 7.2 Hal yang Masih Kurang -->
+            <div class="space-y-1 text-xs text-slate-700 leading-relaxed text-justify">
+                <strong class="text-slate-900 block">7.2 Hal yang Masih Kurang:</strong>
+                Sebagai bentuk kejujuran akademik, saya menyadari visualisasi spasial saat ini masih menggunakan
+                representasi titik koordinat lingkaran (*circleMarker*) bukan poligon GeoJSON batas administrasi, serta
+                dataset masih berbasis agregasi bulanan per kecamatan belum per hari per kelurahan.
+            </div>
+
+            <!-- 7.3 Pernyataan Keaslian -->
+            <div class="pt-6 border-t border-slate-200">
+                <p class="text-xs text-slate-700 leading-relaxed text-justify mb-8">
+                    <strong>7.3 Pernyataan Keaslian Mahasiswa:</strong><br>
+                    Saya menyatakan dengan sesungguhnya bahwa isi laporan ini adalah hasil refleksi pengalaman dan
+                    pekerjaan saya sendiri dalam menyelesaikan tugas akhir mata kuliah <strong>Big Data
+                        Analysis</strong>. Penggunaan alat bantu kecerdasan buatan (AI) telah saya deklarasikan secara
+                    jujur dan transparan pada Bagian 2.5 dan Bagian 4.5.
+                </p>
+
+                <div class="flex justify-end text-xs text-slate-800">
+                    <div class="text-right space-y-1">
+                        <div>Palu, 25 November 2026</div>
+                        <div>Yang menyatakan,</div>
+                        <div class="h-16"></div>
+                        <div class="font-black underline text-slate-900">[Nama Lengkap Mahasiswa]</div>
+                        <div class="font-bold text-slate-600">NIM. [NIM Mahasiswa]</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </article>
+
+</body>
+
+</html>

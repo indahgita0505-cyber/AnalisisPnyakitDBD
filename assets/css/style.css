@@ -1,0 +1,239 @@
+/* ==================================================== */
+/* SIPEDBD - SISTEM INFORMASI PREDIKSI & ANALISIS DBD   */
+/* DESIGN SYSTEM & MODERN DASHBOARD STYLESHEET          */
+/* ==================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --brand-primary: #0284c7;
+    --brand-primary-dark: #0369a1;
+    --brand-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--brand-bg);
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+/* ---------------------------------------------------- */
+/* Card System (Bersih, Rapi, Berdimensi Lembut)       */
+/* ---------------------------------------------------- */
+.glass-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.glass-card:hover {
+    border-color: #cbd5e1;
+}
+
+.glass-card-dark {
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(51, 65, 85, 0.8);
+}
+
+.kpi-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08);
+    border-color: #cbd5e1;
+}
+
+/* ---------------------------------------------------- */
+/* Top Header & Navigation Tabs                         */
+/* ---------------------------------------------------- */
+.nav-tab-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.nav-tab-container::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-tab {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.775rem !important;
+    font-weight: 700 !important;
+    border-radius: 0.75rem !important;
+    border: 1.5px solid #cbd5e1 !important;
+    background-color: #f8fafc !important;
+    color: #1e293b !important; /* TEKS GELAP KONTRAST TINGGI (SELALU TERBACA) */
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    user-select: none !important;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05) !important;
+}
+
+.nav-tab span {
+    color: #1e293b !important;
+}
+
+.nav-tab:hover {
+    background-color: #e2e8f0 !important;
+    color: #0f172a !important;
+    border-color: #94a3b8 !important;
+    transform: translateY(-1px);
+}
+
+.nav-tab:hover span {
+    color: #0f172a !important;
+}
+
+/* KETIKA TOMBOL DIPILIH (ACTIVE): Biru Tebal, Teks Putih Bersih + Shadow */
+.nav-tab.active {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35) !important;
+    transform: translateY(-1px);
+}
+
+.nav-tab.active span {
+    color: #ffffff !important;
+}
+
+.nav-tab .tab-dot {
+    display: none;
+    width: 6px;
+    height: 6px;
+    background-color: #38bdf8;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #38bdf8;
+}
+
+.nav-tab.active .tab-dot {
+    display: inline-block !important;
+}
+
+/* ---------------------------------------------------- */
+/* Leaflet Map & GIS Styling                            */
+/* ---------------------------------------------------- */
+#map {
+    height: 520px;
+    min-height: 480px;
+    width: 100%;
+    border-radius: 0.875rem;
+    z-index: 10;
+    position: relative;
+    background-color: #f8fafc;
+}
+
+.map-filter-btn {
+    border: 1.5px solid #cbd5e1;
+    font-weight: 700;
+    transition: all 0.15s ease;
+}
+
+.map-filter-btn.active-filter {
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+    transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------- */
+/* Action Checklist Styling (Rapi & Interaktif)         */
+/* ---------------------------------------------------- */
+.action-check-item {
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.action-check-item:hover {
+    background-color: #f8fafc;
+}
+
+.action-check-item.done {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+/* ---------------------------------------------------- */
+/* Table Styling (Rapi, Seimbang & Nyaman Dibaca)       */
+/* ---------------------------------------------------- */
+.modern-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.modern-table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.6875rem;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 1rem;
+    border-bottom: 1.5px solid #e2e8f0;
+}
+
+.modern-table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.75rem;
+}
+
+.modern-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* ---------------------------------------------------- */
+/* Pulse Animation for Warning Tiers                    */
+/* ---------------------------------------------------- */
+.pulse-red {
+    animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+/* ---------------------------------------------------- */
+/* Custom Smooth Scrollbar                              */
+/* ---------------------------------------------------- */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}

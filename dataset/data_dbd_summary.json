@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "judul": "Dataset Kasus DBD Terintegrasi",
+    "cakupan": "20 Kecamatan Wilayah Urban",
+    "rentang_tahun": "2019 - 2024",
+    "total_records": 11520,
+    "total_kasus": 30046,
+    "total_meninggal": 322,
+    "cfr_persen": 1.07,
+    "kecamatan_list": [
+      "Cicendo",
+      "Coblong",
+      "Batununggal",
+      "Kiaracondong",
+      "Lengkong",
+      "Regol",
+      "Sukajadi",
+      "Sukasari",
+      "Bojongloa Kaler",
+      "Bojongloa Kidul",
+      "Astanaanyar",
+      "Babakan Ciparay",
+      "Bandung Kulon",
+      "Bandung Wetan",
+      "Sumur Bandung",
+      "Cibeunying Kaler",
+      "Cibeunying Kidul",
+      "Antapani",
+      "Arcamanik",
+      "Ujungberung"
+    ],
+    "koordinat_kecamatan": {
+      "Cicendo": {
+        "lat": -6.9034,
+        "lng": 107.5973,
+        "populasi": 98500
+      },
+      "Coblong": {
+        "lat": -6.8837,
+        "lng": 107.6163,
+        "populasi": 112000
+      },
+      "Batununggal": {
+        "lat": -6.9388,
+        "lng": 107.6258,
+        "populasi": 124000
+      },
+      "Kiaracondong": {
+        "lat": -6.9242,
+        "lng": 107.6492,
+        "populasi": 131000
+      },
+      "Lengkong": {
+        "lat": -6.9333,
+        "lng": 107.6194,
+        "populasi": 72000
+      },
+      "Regol": {
+        "lat": -6.9392,
+        "lng": 107.6083,
+        "populasi": 83000
+      },
+      "Sukajadi": {
+        "lat": -6.8856,
+        "lng": 107.5894,
+        "populasi": 108000
+      },
+      "Sukasari": {
+        "lat": -6.8672,
+        "lng": 107.5833,
+        "populasi": 84000
+      },
+      "Bojongloa Kaler": {
+        "lat": -6.9292,
+        "lng": 107.5878,
+        "populasi": 126000
+      },
+      "Bojongloa Kidul": {
+        "lat": -6.9506,
+        "lng": 107.5956,
+        "populasi": 89000
+      },
+      "Astanaanyar": {
+        "lat": -6.9344,
+        "lng": 107.5989,
+        "populasi": 71000
+      },
+      "Babakan Ciparay": {
+        "lat": -6.9389,
+        "lng": 107.5764,
+        "populasi": 145000
+      },
+      "Bandung Kulon": {
+        "lat": -6.9186,
+        "lng": 107.5678,
+        "populasi": 139000
+      },
+      "Bandung Wetan": {
+        "lat": -6.9069,
+        "lng": 107.6169,
+        "populasi": 31000
+      },
+      "Sumur Bandung": {
+        "lat": -6.9175,
+        "lng": 107.6128,
+        "populasi": 37000
+      },
+      "Cibeunying Kaler": {
+        "lat": -6.8928,
+        "lng": 107.6339,
+        "populasi": 70000
+      },
+      "Cibeunying Kidul": {
+        "lat": -6.9056,
+        "lng": 107.6433,
+        "populasi": 115000
+      },
+      "Antapani": {
+        "lat": -6.9167,
+        "lng": 107.6617,
+        "populasi": 79000
+      },
+      "Arcamanik": {
+        "lat": -6.9139,
+        "lng": 107.6806,
+        "populasi": 78000
+      },
+      "Ujungberung": {
+        "lat": -6.9142,
+        "lng": 107.7014,
+        "populasi": 88000
+      }
+    }
+  }
+}
